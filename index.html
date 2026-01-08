@@ -1,0 +1,210 @@
+<div class="age-calculator-tool">
+  <!-- Age Display -->
+  <div class="age-display-section">
+    <div class="age-container">
+      <div class="age-result">
+        <div class="age-value" id="ageValue">--</div>
+        <div class="age-unit" id="ageUnit">Enter your birth date</div>
+      </div>
+      <div class="age-actions">
+        <button class="btn btn-primary" onclick="calculateAge()" title="Calculate Age"> 
+          📅 Calculate
+        </button>
+        <button class="btn btn-secondary" onclick="resetForm()" title="Reset Form">
+          🔄 Reset
+        </button>
+      </div>
+    </div>
+    <div class="age-breakdown" id="ageBreakdown">
+      <div class="breakdown-item">
+        <div class="breakdown-value" id="yearsValue">--</div>
+        <div class="breakdown-label">Years</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-value" id="monthsValue">--</div>
+        <div class="breakdown-label">Months</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-value" id="daysValue">--</div>
+        <div class="breakdown-label">Days</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-value" id="weeksValue">--</div>
+        <div class="breakdown-label">Weeks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input Section -->
+  <div class="input-section">
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="birthDate">Birth Date</label>
+        <input type="date" id="birthDate" max="">
+      </div>
+      <div class="input-group">
+        <label for="compareDate">Compare Date (Optional)</label>
+        <input type="date" id="compareDate">
+        <div class="input-hint">Leave empty for current date</div>
+      </div>
+    </div>
+    
+    <div class="quick-actions">
+      <button class="btn btn-sm" onclick="setToday()">Today</button>
+      <button class="btn btn-sm" onclick="setYesterday()">Yesterday</button>
+      <button class="btn btn-sm" onclick="setTomorrow()">Tomorrow</button>
+      <button class="btn btn-sm" onclick="clearCompareDate()">Clear Compare</button>
+    </div>
+  </div>
+
+  <!-- Detailed Results -->
+  <div class="results-section" id="resultsSection" style="display: none;">
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-icon">🎂</div>
+        <div class="result-content">
+          <div class="result-title">Next Birthday</div>
+          <div class="result-value" id="nextBirthday">--</div>
+          <div class="result-desc" id="birthdayCountdown">--</div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">⭐</div>
+        <div class="result-content">
+          <div class="result-title">Zodiac Sign</div>
+          <div class="result-value" id="zodiacSign">--</div>
+          <div class="result-desc" id="zodiacDates">--</div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">🐰</div>
+        <div class="result-content">
+          <div class="result-title">Chinese Zodiac</div>
+          <div class="result-value" id="chineseZodiac">--</div>
+          <div class="result-desc" id="zodiacElement">--</div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">📅</div>
+        <div class="result-content">
+          <div class="result-title">Birth Day</div>
+          <div class="result-value" id="birthDay">--</div>
+          <div class="result-desc" id="dayOfYear">--</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Section -->
+  <div class="timeline-section" id="timelineSection" style="display: none;">
+    <h4>Age Timeline</h4>
+    <div class="timeline">
+      <div class="timeline-milestones">
+        <div class="milestone past" data-age="0">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">Birth</div>
+        </div>
+        <div class="milestone" data-age="1">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">1 Year</div>
+        </div>
+        <div class="milestone" data-age="5">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">5 Years</div>
+        </div>
+        <div class="milestone" data-age="10">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">10 Years</div>
+        </div>
+        <div class="milestone" data-age="13">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">Teen</div>
+        </div>
+        <div class="milestone" data-age="18">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">Adult</div>
+        </div>
+        <div class="milestone" data-age="21">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">21</div>
+        </div>
+        <div class="milestone" data-age="30">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">30</div>
+        </div>
+        <div class="milestone" data-age="40">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">40</div>
+        </div>
+        <div class="milestone" data-age="50">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">50</div>
+        </div>
+        <div class="milestone" data-age="60">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">60</div>
+        </div>
+        <div class="milestone" data-age="70">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">70</div>
+        </div>
+        <div class="milestone" data-age="80">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">80</div>
+        </div>
+        <div class="milestone" data-age="90">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">90</div>
+        </div>
+        <div class="milestone" data-age="100">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">100</div>
+        </div>
+      </div>
+      <div class="timeline-progress">
+        <div class="timeline-bar">
+          <div class="timeline-fill" id="timelineFill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History Section -->
+  <div class="history-section">
+    <div class="section-header">
+      <h4>Calculation History</h4>
+      <button class="btn btn-sm" onclick="clearHistory()">Clear History</button>
+    </div>
+    <div class="age-history" id="ageHistory">
+      <div class="no-history">No calculations yet</div>
+    </div>
+  </div>
+
+  <!-- Information Section -->
+  <div class="info-section">
+    <h4>About Age Calculation</h4>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">📊</div>
+        <div class="info-content">
+          <h5>How Age is Calculated</h5>
+          <p>Age is calculated based on the difference between two dates, accounting for leap years and varying month lengths.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⭐</div>
+        <div class="info-content">
+          <h5>Zodiac Signs</h5>
+          <p>Western astrology divides the year into 12 zodiac signs based on birth dates.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🐰</div>
+        <div class="info-content">
+          <h5>Chinese Zodiac</h5>
+          <p>Based on a 12-year cycle with each year represented by an animal sign and one of five elements.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

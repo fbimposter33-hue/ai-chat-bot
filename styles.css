@@ -1,0 +1,525 @@
+age-calculator-tool {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 3rem;
+}
+
+/* Age Display */
+.age-display-section {
+    margin-bottom: 30px;
+}
+
+.age-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: stretch;
+}
+
+.age-result {
+    flex: 1;
+    padding: 25px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--light-bg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.age-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.age-unit {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.age-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.age-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.breakdown-item {
+    background: white;
+    padding: 20px 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.breakdown-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.breakdown-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 25px;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-hint {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Results Section */
+.results-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.result-card {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    align-items: flex-start;
+}
+
+.result-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.result-content {
+    flex: 1;
+}
+
+.result-title {
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result-value {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 0 0 3px 0;
+}
+
+.result-desc {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Timeline Section */
+.timeline-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.timeline-section h4 {
+    margin: 0 0 20px 0;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline-milestones {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.milestone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.milestone.past .milestone-dot {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.milestone.past .milestone-label {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.milestone-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 50%;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.milestone-label {
+    font-size: 0.7rem;
+    color: var(--secondary-color);
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.timeline-progress {
+    position: relative;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.timeline-bar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.timeline-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), #4cd964);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* History Section */
+.history-section {
+    margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h4 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.age-history {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.history-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-age {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.history-info {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.history-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.history-btn {
+    padding: 4px 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.history-btn.copy {
+    color: var(--primary-color);
+}
+
+.history-btn.copy:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.history-btn.delete {
+    color: #dc3545;
+}
+
+.history-btn.delete:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.no-history {
+    text-align: center;
+    color: var(--secondary-color);
+    padding: 30px 20px;
+    font-style: italic;
+}
+
+/* Info Section */
+.info-section h4 {
+    margin: 0 0 15px 0;
+    color: var(--text-color);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.info-card {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.info-content h5 {
+    margin: 0 0 8px 0;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.info-content p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    line-height: 1.4;
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.btn-sm:hover {
+    background: var(--light-bg);
+    transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .age-calculator-tool {
+        padding: 20px;
+    }
+    
+    .age-container {
+        flex-direction: column;
+    }
+    
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .age-breakdown {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-milestones {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .milestone {
+        flex: 0 0 calc(25% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .age-value {
+        font-size: 2.5rem;
+    }
+    
+    .breakdown-value {
+        font-size: 1.5rem;
+    }
+    
+    .age-breakdown {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions {
+        justify-content: center;
+    }
+}
+
+/* Success Animation */
+@keyframes successPulse {
+    0% { background-color: var(--primary-color); }
+    50% { background-color: #28a745; }
+    100% { background-color: var(--primary-color); }
+}
+
+.success {
+    animation: successPulse 0.5s ease-in-out;
+}
+
+/* Zodiac Colors */
+.zodiac-aries { color: #e74c3c; }
+.zodiac-taurus { color: #27ae60; }
+.zodiac-gemini { color: #f39c12; }
+.zodiac-cancer { color: #3498db; }
+.zodiac-leo { color: #e67e22; }
+.zodiac-virgo { color: #9b59b6; }
+.zodiac-libra { color: #1abc9c; }
+.zodiac-scorpio { color: #c0392b; }
+.zodiac-sagittarius { color: #d35400; }
+.zodiac-capricorn { color: #7f8c8d; }
+.zodiac-aquarius { color: #2980b9; }
+.zodiac-pisces { color: #8e44ad; }
